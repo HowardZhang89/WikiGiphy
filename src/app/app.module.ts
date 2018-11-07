@@ -10,14 +10,7 @@ import { WikiService } from './wiki-service.service';
 import { GiphyService } from './giphy.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-
-//https://stackoverflow.com/questions/37605119/angular2-router-angular-router-how-to-set-default-route
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'search-history', component: SearchHistoryComponent},
-  { path: '**', redirectTo: '/dashboard', pathMatch: 'full'},
-];
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +20,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
   ],
