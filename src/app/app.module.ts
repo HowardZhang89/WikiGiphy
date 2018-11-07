@@ -7,12 +7,16 @@ import { SearchHistoryComponent } from './search-history/search-history.componen
 
 import { HistoryService } from './history.service';
 import { WikiService } from './wiki-service.service';
+import { GiphyService } from './giphy.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 
+//https://stackoverflow.com/questions/37605119/angular2-router-angular-router-how-to-set-default-route
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'search-history', component: SearchHistoryComponent},
+  { path: '**', redirectTo: '/dashboard', pathMatch: 'full'},
 ];
 
 @NgModule({
@@ -27,7 +31,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
   ],
-  providers: [HistoryService, WikiService],
+  providers: [HistoryService, WikiService, GiphyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

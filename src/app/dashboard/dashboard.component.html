@@ -15,8 +15,14 @@
 </form>
 
 <div *ngIf="wikiResults">
+  <h1> Wiki Results </h1>
   <div *ngFor="let result of wikiResults">
     <h3>{{result}}</h3>
   </div>
+</div>
+
+<div *ngIf="giphyResults">
+  <h1>Giphy Results</h1>
+  <img *ngFor = "let result of giphyResults" src = "{{result}}">
 </div>
 

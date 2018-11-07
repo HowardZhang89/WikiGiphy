@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { HistoryService } from '../history.service';
 import { WikiService } from '../wiki-service.service';
+import { GiphyService } from '../giphy.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private historyService: HistoryService, 
-              private wikiService: WikiService,) 
+              private wikiService: WikiService,
+              private giphyService: GiphyService,)
   { 
     this.searchInput ='';
     this.wikiResults = [];
@@ -25,7 +27,8 @@ export class DashboardComponent implements OnInit {
 
   search(){
     this.historyService.addSearchToHistory(this.searchInput);
-    this.wikiService.searchWiki(this.searchInput).subscribe(results => this.wikiResults = results);;
+    this.wikiService.searchWiki(this.searchInput).subscribe(results => this.wikiResults = results);
+    this.giphyService.searchGiphy(this.searchInput).subscribe(results => this.giphyResults = results);
   }
 
   ngOnInit() {
