@@ -3,12 +3,14 @@
     <h2> A combination of Wiki and Giphy!</h2>
 </div>
 
-<div class = "searchForm">  
-  <form>
-    <div class = "form-group">
-      <label for="searchQuery"> Search </label>
-      <input type="text" class = "form-control" id = "searchQuery" required>
-      <button type = "submit" class = "btn btn-success"> Submit</button>
-    </div>
-  </form>
-</div>
+
+<form (ngSubmit)="search()">
+  <div class = "form-group">
+    <label for="searchInput"> Search </label>
+    <input type="text" class = "form-control" id = "searchInput" 
+            required
+            [(ngModel)]="this.searchInput" name = "searchInput">
+    <button type = "submit" class = "btn btn-success"> Submit</button>
+  </div>
+</form>
+

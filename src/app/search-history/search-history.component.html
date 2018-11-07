@@ -1,6 +1,6 @@
 <div>
   <h1> Search History </h1>
-  <div *ngFor= "let search of searchHistory">
+  <div *ngFor= "let search of historyService.getHistory()">
     {{search}}
   </div>
 </div>

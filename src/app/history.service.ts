@@ -15,4 +15,8 @@ export class HistoryService {
     this.searchHistory.push(query);
     console.log(query);  // just basic stuff for now
   }
+
+  getHistory(){
+    return this.searchHistory;
+  }
 }

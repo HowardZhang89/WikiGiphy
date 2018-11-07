@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { HistoryService } from '../history.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  searchInput: String;
+  wikiResults: any[];
+  giphyResults: any[];
+
+
+  constructor(private historyService: HistoryService) { 
+    this.searchInput ='bob';
+    this.wikiResults = [];
+    this.giphyResults = [];
+  }
+
+  search(){
+    this.historyService.addSearchToHistory(this.searchInput);
+  }
 
   ngOnInit() {
   }
