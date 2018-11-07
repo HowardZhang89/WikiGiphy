@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from '../history.service';
 
 @Component({
   selector: 'app-search-history',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchHistoryComponent implements OnInit {
 
-  constructor() { 
+  constructor(private historyService: HistoryService) { 
+    // historyService will take care of the stuff this would normally do
   }
 
   ngOnInit() {

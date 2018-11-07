@@ -1,8 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SearchHistoryComponent } from './search-history/search-history.component';
+
+import {HistoryService } from './history.service';
+
+const appRoutes: Routes = [
+  { path: 'search-history', component: SearchHistoryComponent},
+];
 
 @NgModule({
   declarations: [
@@ -10,9 +16,10 @@ import { SearchHistoryComponent } from './search-history/search-history.componen
     SearchHistoryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

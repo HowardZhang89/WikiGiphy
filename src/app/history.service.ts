@@ -5,5 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class HistoryService {
 
-  constructor() { }
+  searchHistory: any[];
+
+  constructor() { 
+    this.searchHistory = [];
+  }
+
+  addSearchToHistory(query: String){
+    this.searchHistory.push(query);
+    console.log(query);  // just basic stuff for now
+  }
 }
