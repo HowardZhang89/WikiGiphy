@@ -10,7 +10,7 @@ import { WikiService } from '../wiki-service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  searchInput: String;
+  searchInput: String;  // input comes from FormsModule
   wikiResults: any[];
   giphyResults: any[];
 
@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
   search(){
     this.historyService.addSearchToHistory(this.searchInput);
+    this.wikiService.searchWiki(this.searchInput).subscribe(results => this.wikiResults = results);;
   }
 
   ngOnInit() {

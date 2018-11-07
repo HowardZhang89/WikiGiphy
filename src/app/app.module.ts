@@ -5,8 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SearchHistoryComponent } from './search-history/search-history.component';
 
-import {HistoryService } from './history.service';
+import { HistoryService } from './history.service';
+import { WikiService } from './wiki-service.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
@@ -23,8 +25,9 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [HistoryService],
+  providers: [HistoryService, WikiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
