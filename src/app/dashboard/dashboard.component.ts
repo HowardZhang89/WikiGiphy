@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { HistoryService } from '../history.service';
+import { WikiService } from '../wiki-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +15,10 @@ export class DashboardComponent implements OnInit {
   giphyResults: any[];
 
 
-  constructor(private historyService: HistoryService) { 
-    this.searchInput ='bob';
+  constructor(private historyService: HistoryService, 
+              private wikiService: WikiService,) 
+  { 
+    this.searchInput ='';
     this.wikiResults = [];
     this.giphyResults = [];
   }
