@@ -7,18 +7,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GiphyService {
-  // API key is imported from environments, you'll need your own
-  
-  giphyStub: String;
   giphyAPIKey: String; 
 
   constructor(private http : HttpClient) { 
-    this.giphyStub = 'limit=5&offset=0&rating=G&lang=en';
     this.giphyAPIKey = 'H0dmfJnFx8YjcbUokdiPLkBuuTzaU46s';
   }
 
   searchGiphy(userInput: String){
-    const fullGiphyURL = `https://api.giphy.com/v1/gifs/search?api_key=${this.giphyAPIKey}&q=${userInput}&${this.giphyStub}`;
+    const fullGiphyURL = `https://api.giphy.com/v1/gifs/search?api_key=${this.giphyAPIKey}&q=${userInput}&limit=5&offset=0&rating=G&lang=en;`;
     
     // return an Observable of Giphy URLs. 
     // Structure of Giphy object is data --> images --> original --> url
